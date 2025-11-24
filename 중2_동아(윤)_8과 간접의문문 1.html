@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8과 문법: 간접 의문문 퀴즈 🧐</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #5a67d8;
+            --secondary-color: #38b2ac;
+            --text-color: #2d3748;
+            --bg-color: #f7fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --correct-color: #38a169;
+            --error-color: #e53e3e;
+            --explanation-bg: #ebf8ff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+            overflow: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        main {
+            padding: 30px;
+        }
+
+        .quiz-section {
+            margin-bottom: 50px;
+        }
+
+        .quiz-section h2 {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .question-block {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .question-block:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .question {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .question strong {
+            color: var(--primary-color);
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+        
+        .question .arrow {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .options {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .options p {
+            margin-bottom: 8px;
+        }
+
+        .toggle-answer {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .toggle-answer:hover {
+            background-color: #4c51bf;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .answer {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: var(--explanation-bg);
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .answer .correct-answer {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: var(--correct-color);
+        }
+
+        .answer .explanation {
+            margin-top: 10px;
+            font-size: 0.95em;
+            color: #4a5568;
+        }
+        
+        .error-part {
+            color: var(--error-color);
+            text-decoration: line-through;
+        }
+        
+        .corrected-part {
+            color: var(--correct-color);
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #718096;
+            font-size: 0.9em;
+            background-color: #edf2f7;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            main {
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            .quiz-section h2 {
+                font-size: 1.6em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>8과 문법: 간접 의문문 퀴즈 🧐</h1>
+            <p>핵심 어순 「의문사 + 주어 + 동사」를 완벽하게 마스터해 보세요! 💪</p>
+        </header>
+
+        <main>
+            <!-- I. 간접 의문문 만들기 -->
+            <section class="quiz-section">
+                <h2>✍️ I. 간접 의문문 만들기 (15문제)</h2>
+                
+                <div class="question-block">
+                    <p class="question"><strong>1.</strong> Where were you born? <span class="arrow">→</span> Can you tell me ___________________________?</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">where you were born</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>2.</strong> What time was it? <span class="arrow">→</span> Can you tell me ___________________________?</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">what time it was</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>3.</strong> How did you find them? <span class="arrow">→</span> Please tell me ___________________________.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">how you found them</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>4.</strong> What did the thief steal? <span class="arrow">→</span> Please tell me ___________________________.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">what the thief stole</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>5.</strong> What was your first movie? <span class="arrow">→</span> I’d like to know ___________________________.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">what your first movie was</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>6.</strong> Who is your favorite actor? <span class="arrow">→</span> Can you tell me ___________________________?</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">who your favorite actor is</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>7.</strong> What did he buy in the store? <span class="arrow">→</span> I don’t know ___________________________.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">what he bought in the store</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>8.</strong> Where are the books? <span class="arrow">→</span> Minsu didn’t know ___________________________.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">where the books were</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>9.</strong> When will the guests arrive? <span class="arrow">→</span> Tell me ___________________________.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">when the guests will arrive</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>10.</strong> Who stole my camera? <span class="arrow">→</span> I want to know ___________________________.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer">
+                        <p class="correct-answer">who stole my camera</p>
+                        <p class="explanation">💡 <strong>핵심 포인트:</strong> 의문사 'Who'가 주어 역할을 겸할 때는 어순 변화가 없습니다!</p>
+                    </div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>11.</strong> How many movies have you made so far? <span class="arrow">→</span> I’d like to know ___________________________.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">how many movies you have made so far</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>12.</strong> What color was the thief's hair? <span class="arrow">→</span> I’d like to know ___________________________.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">what color the thief's hair was</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>13.</strong> What is your goal in life? <span class="arrow">→</span> I’d like to know ___________________________.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">what your goal in life is</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>14.</strong> Where does Kevin live? <span class="arrow">→</span> Minho doesn’t know ___________________________.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">where Kevin lives</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>15.</strong> How did you become interested in Uigwe? <span class="arrow">→</span> Can you tell me ___________________________?</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">how you became interested in Uigwe</p></div>
+                </div>
+            </section>
+
+            <!-- II. O/X 퀴즈 -->
+            <section class="quiz-section">
+                <h2>⭕️❌ II. O/X 퀴즈 (15문제)</h2>
+                
+                <div class="question-block">
+                    <p class="question"><strong>16.</strong> 간접 의문문은 직접 의문문과 달리 주어와 동사의 도치 현상이 일어나지 않는다.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">O</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>17.</strong> Can you tell me what your favorite subject is?는 올바른 간접 의문문 형태이다.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">O</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>18.</strong> 간접 의문문은 주로 know, tell, ask, wonder 등의 동사 뒤 목적절로 쓰인다.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">O</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>19.</strong> We wonder what time does the store close.는 올바른 간접 의문문 형태이다.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer">
+                        <p class="correct-answer">X</p>
+                        <p class="explanation">💡 올바른 형태: what time <strong>the store closes</strong></p>
+                    </div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>20.</strong> Please tell me where is the book.은 교과서에서 제시된 문장의 올바른 간접 의문문 형태이다.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer">
+                        <p class="correct-answer">X</p>
+                        <p class="explanation">💡 올바른 형태: where <strong>the book is</strong></p>
+                    </div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>21.</strong> 간접 의문문의 기본 어순은 「의문사 + 주어 + 동사」이다.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">O</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>22.</strong> Tell me when you will come home.은 올바른 간접 의문문 형태이다.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">O</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>23.</strong> I want to know who stole my camera.에서 `who`는 의문사이면서 동시에 주어 역할을 한다.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">O</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>24.</strong> Please tell me how did you find them.은 교과서 본문에 제시된 올바른 문장이다.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer">
+                        <p class="correct-answer">X</p>
+                        <p class="explanation">💡 올바른 형태: how <strong>you found them</strong></p>
+                    </div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>25.</strong> I’d like to know what your goal in life is.는 올바른 간접 의문문 형태이다.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">O</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>26.</strong> When was Kevin born?을 간접 의문문으로 바꾸면 Minho knows when was Kevin born.이 된다.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer">
+                        <p class="correct-answer">X</p>
+                        <p class="explanation">💡 올바른 형태: when <strong>Kevin was born</strong></p>
+                    </div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>27.</strong> 간접 의문문은 보통 직접 의문문보다 더 공손하고 격식 있는 표현으로 사용된다.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">O</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>28.</strong> Minho knows who Kevin’s favorite actor is.는 메모를 바탕으로 완성된 올바른 문장이다.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">O</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>29.</strong> I want to know what you are interested in.은 올바른 간접 의문문 형태이다.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">O</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>30.</strong> John asked me who the girl was.는 올바른 간접 의문문 형태이다.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">O</p></div>
+                </div>
+            </section>
+            
+            <!-- III. 틀린 문장 고르기 -->
+            <section class="quiz-section">
+                <h2>🔎 III. 틀린 문장 고르기 (10문제)</h2>
+
+                <h3 style="margin: 30px 0 20px; font-size: 1.4em;">A. 틀린 문장 고르기</h3>
+                <div class="question-block">
+                    <p class="question"><strong>31.</strong> 다음 문장 중 어법상 어색한 문장은?</p>
+                    <div class="options">
+                        <p>① I don’t know who borrowed your book.</p>
+                        <p>② John asked me who the girl was.</p>
+                        <p>③ Tell me when will you come home.</p>
+                        <p>④ I didn’t sleep well because of the loud noise.</p>
+                        <p>⑤ I am nervous because I have an exam tomorrow.</p>
+                    </div>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer">
+                        <p class="correct-answer">③ Tell me when will you come home.</p>
+                        <p class="explanation">💡 수정: Tell me when <strong>you will</strong> come home.</p>
+                    </div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>32.</strong> 다음 중 간접 의문문의 어순이 틀린 문장은?</p>
+                    <div class="options">
+                        <p>① I want to know what time it is.</p>
+                        <p>② Please tell me where Kevin lives.</p>
+                        <p>③ Can you tell me how did you become a director?</p>
+                        <p>④ Minho knows when Kevin was born.</p>
+                        <p>⑤ I’d like to know what your goal in life is.</p>
+                    </div>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer">
+                        <p class="correct-answer">③ Can you tell me how did you become a director?</p>
+                        <p class="explanation">💡 수정: Can you tell me how <strong>you became</strong> a director?</p>
+                    </div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>33.</strong> 다음 문장 중 간접 의문문 형태가 잘못된 문장은?</p>
+                    <div class="options">
+                        <p>① Can you tell me what the thief was wearing?</p>
+                        <p>② I want to know who is your best friend.</p>
+                        <p>③ Please tell me what the thief stole.</p>
+                        <p>④ Tell me how you found the key.</p>
+                        <p>⑤ I don’t know what he bought yesterday.</p>
+                    </div>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer">
+                        <p class="correct-answer">② I want to know who is your best friend.</p>
+                        <p class="explanation">💡 수정: I want to know who <strong>your best friend is</strong>.</p>
+                    </div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>34.</strong> 다음 중 간접 의문문의 형태가 어색한 문장은?</p>
+                    <div class="options">
+                        <p>① I don’t know <strong>what did he buy</strong> yesterday.</p>
+                        <p>② Please tell me <strong>where the book is</strong>.</p>
+                        <p>③ I want to know <strong>when the movie will start</strong>.</p>
+                        <p>④ Tell me <strong>how you found the key</strong>.</p>
+                        <p>⑤ Can you tell me <strong>what time it is</strong>?</p>
+                    </div>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer">
+                        <p class="correct-answer">① I don’t know <strong>what did he buy</strong> yesterday.</p>
+                        <p class="explanation">💡 수정: I don’t know <strong>what he bought</strong> yesterday.</p>
+                    </div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>35.</strong> 다음 글의 밑줄 친 부분 중 간접 의문문의 어순이 틀린 것은?</p>
+                    <div class="options">
+                        <p>Q: You found 297 books of Uigwe. Please tell me ① <u>how did you find them</u>.<br>
+                        Dr. Park: ② <u>As soon as I became a researcher</u> at the National Library, I began to look for Uigwe. I think I looked at ③ <u>more than 30 million books</u>. Many Koreans became interested in Uigwe ④ <u>because of your book</u>. Before I finish, I’d like to ask you ⑤ <u>about Jikji</u>.</p>
+                    </div>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer">
+                        <p class="correct-answer">① how did you find them.</p>
+                        <p class="explanation">💡 수정: how <strong>you found them</strong>.</p>
+                    </div>
+                </div>
+
+                <h3 style="margin: 30px 0 20px; font-size: 1.4em;">B. 틀린 부분 찾아 고치기</h3>
+                <div class="question-block">
+                    <p class="question"><strong>36.</strong> Can you tell me <span class="error-part">how did you become interested</span> in Uigwe?</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">→ how <span class="corrected-part">you became interested</span></p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>37.</strong> Please tell me <span class="error-part">where does Kevin live</span>.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">→ where <span class="corrected-part">Kevin lives</span></p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>38.</strong> I want to know <span class="error-part">when will the movie start</span>.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">→ when <span class="corrected-part">the movie will start</span></p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>39.</strong> Tell me <span class="error-part">when will you come home</span>.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">→ when <span class="corrected-part">you will come home</span></p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>40.</strong> Can you tell me <span class="error-part">what time is it</span>?</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">→ what time <span class="corrected-part">it is</span></p></div>
+                </div>
+            </section>
+            
+            <!-- IV. 맞는 문장 고르기 -->
+            <section class="quiz-section">
+                <h2>✅ IV. 맞는 문장 고르기 (10문제)</h2>
+                
+                <div class="question-block">
+                    <p class="question"><strong>41.</strong> I don’t know ( what did he buy / <strong>what he bought</strong> ) yesterday.</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">what he bought</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>42.</strong> Please tell me ( where is the book / <strong>where the book is</strong> ).</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">where the book is</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>43.</strong> I want to know ( <strong>when the movie will start</strong> / when will the movie start ).</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">when the movie will start</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>44.</strong> Tell me ( how did you find the key / <strong>how you found the key</strong> ).</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">how you found the key</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>45.</strong> Can you tell me ( what time is it / <strong>what time it is</strong> )?</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">what time it is</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>46.</strong> Please tell me ( how did you find them / <strong>how you found them</strong> ).</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">how you found them</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>47.</strong> I’d like to know ( <strong>who your favorite actor is</strong> / who is your favorite actor ).</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">who your favorite actor is</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>48.</strong> Minho knows ( <strong>when Kevin was born</strong> / when was Kevin born ).</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">when Kevin was born</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>49.</strong> I want to ask you ( what do you like to do / <strong>what you like to do</strong> ).</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">what you like to do</p></div>
+                </div>
+                <div class="question-block">
+                    <p class="question"><strong>50.</strong> ( Please tell me where does Kevin live / <strong>Please tell me where Kevin lives</strong> ).</p>
+                    <button class="toggle-answer">정답 확인</button>
+                    <div class="answer"><p class="correct-answer">Please tell me where Kevin lives</p></div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>You've completed the quiz! Keep up the great work! 🎉</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButtons = document.querySelectorAll('.toggle-answer');
+
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const answerDiv = this.nextElementSibling;
+                    if (answerDiv.style.display === 'block') {
+                        answerDiv.style.display = 'none';
+                        this.textContent = '정답 확인';
+                    } else {
+                        answerDiv.style.display = 'block';
+                        this.textContent = '정답 숨기기';
+                    }
+                });
+            });
+            
+            // For section IV, bold the correct answer in the question itself for clarity
+            const selectionQuestions = document.querySelectorAll('.quiz-section:last-of-type .question');
+            selectionQuestions.forEach(q => {
+               // The original data already includes the bolding, so this is just for potential future enhancement
+               // Example: q.innerHTML = q.innerHTML.replace('**', '<strong>').replace('**', '</strong>');
+            });
+        });
+    </script>
+
+</body>
+</html>
